@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 8 English | Unit 7: Bonsai Life (Pages 109–117)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Telugu', 'sans-serif'],
+          },
+          colors: {
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans Telugu', sans-serif;
+      background-color: #f8fafc;
+    }
+    /* Custom scrollbar for horizontal pill nav on mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Subject Circle & Predicate Underline visual styling */
+    .subject-circle {
+      display: inline-block;
+      border: 2.5px solid #e11d48;
+      background-color: #ffe4e6;
+      color: #9f1239;
+      border-radius: 9999px;
+      padding: 2px 12px;
+      font-weight: 700;
+      margin-right: 4px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .predicate-underline {
+      text-decoration: underline;
+      text-decoration-color: #0284c7;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 5px;
+      color: #0369a1;
+      font-weight: 600;
+    }
+    .vocab-highlight {
+      background: linear-gradient(120deg, #fef08a 0%, #fde047 100%);
+      padding: 0 5px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px dashed #ca8a04;
+    }
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    .animate-pulse-soft {
+      animation: pulse-soft 2.5s infinite;
+    }
+  </style>
+</head>
+<body class="text-slate-800 pb-24">
+
+  <!-- STICKY HEADER WITH LIVE SCREEN TIME & PROGRESS -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-emerald-800 via-teal-800 to-emerald-900 text-white shadow-lg">
+    <div class="max-w-5xl mx-auto px-3 sm:px-6 py-2.5">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <!-- Brand & Title -->
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-400 text-emerald-950 flex items-center justify-center font-extrabold text-lg shadow">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] uppercase tracking-wider bg-emerald-700/80 px-2 py-0.5 rounded-full font-semibold text-amber-300 border border-emerald-500/40">Class 8 • Unit 7</span>
+              <span class="text-[11px] text-emerald-200 hidden sm:inline">Pages 109–117</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-extrabold leading-tight">Bonsai Life (Part I & II)</h1>
+          </div>
+        </div>
+
+        <!-- Live Screen Timer & Score Badge -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="bg-slate-900/60 border border-emerald-400/30 rounded-xl px-3 py-1.5 flex items-center gap-2 shadow-inner" title="Active Study & Watch Time">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-ping"></span>
+            <i class="fa-regular fa-clock text-amber-300 text-xs sm:text-sm"></i>
+            <div class="text-left">
+              <div class="text-[9px] uppercase tracking-wider text-emerald-200 leading-none">Screen Time</div>
+              <div id="headerTimer" class="text-xs sm:text-sm font-mono font-bold text-white leading-tight">00:00</div>
+            </div>
+          </div>
+
+          <div class="bg-amber-400 text-slate-900 rounded-xl px-3 py-1.5 flex items-center gap-1.5 font-bold text-xs sm:text-sm shadow">
+            <i class="fa-solid fa-star text-amber-700"></i>
+            <span id="scoreDisplay">0</span><span class="text-[11px] font-semibold">/25 pts</span>
+          </div>
+
+          <button onclick="scrollToSection('reportSection')" class="bg-rose-500 hover:bg-rose-600 active:scale-95 transition text-white text-xs sm:text-sm font-bold px-3 py-2 rounded-xl shadow flex items-center gap-1.5">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span class="hidden md:inline">Submit Report</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="mt-2 bg-emerald-950/60 rounded-full h-1.5 w-full overflow-hidden">
+        <div id="overallProgress" class="bg-gradient-to-r from-amber-300 to-lime-400 h-full transition-all duration-500" style="width: 12%"></div>
+      </div>
+
+      <!-- Mobile-Friendly Tab Navigation -->
+      <nav class="mt-2.5 flex space-x-1.5 overflow-x-auto no-scrollbar pb-1 text-xs sm:text-sm font-semibold">
+        <button onclick="switchTab('tab-lesson')" id="btn-tab-lesson" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-white text-emerald-900 shadow-sm flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-book-open"></i> 1. Easy Lesson (Pg 110-112)
+        </button>
+        <button onclick="switchTab('tab-page109')" id="btn-tab-page109" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-700/60 hover:bg-emerald-700 text-emerald-100 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-check-double"></i> 2. Pg 109 Exercises
+        </button>
+        <button onclick="switchTab('tab-page112')" id="btn-tab-page112" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-700/60 hover:bg-emerald-700 text-emerald-100 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-tree"></i> 3. Pg 112-114 Comprehension
+        </button>
+        <button onclick="switchTab('tab-vocab')" id="btn-tab-vocab" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-700/60 hover:bg-emerald-700 text-emerald-100 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-spell-check"></i> 4. Pg 114-115 Vocabulary
+        </button>
+        <button onclick="switchTab('tab-grammar')" id="btn-tab-grammar" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-700/60 hover:bg-emerald-700 text-emerald-100 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-pen-ruler"></i> 5. Pg 116 Grammar
+        </button>
+        <button onclick="switchTab('tab-writing')" id="btn-tab-writing" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-700/60 hover:bg-emerald-700 text-emerald-100 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-palette"></i> 6. Pg 116-117 Poster & Listening
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-3 sm:px-6 pt-5 space-y-8">
+
+    <!-- HERO BANNER: THEME OF WOMEN EMPOWERMENT -->
+    <section class="bg-gradient-to-br from-amber-50 via-emerald-50 to-teal-100 border border-emerald-200 rounded-2xl p-4 sm:p-6 shadow-sm relative overflow-hidden">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-700 text-white text-xs font-bold">
+            <i class="fa-solid fa-award text-amber-300"></i> Theme: Women Empowerment (మహిళా సాధికారత)
+          </div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-emerald-950">
+            "Bonsai Life" (బోన్సాయ్ బ్రతుకులు) — Made Super Easy!
+          </h2>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Written by renowned feminist writer <strong>Abburi Chayadevi</strong> (Translated from Telugu by <em>Alladi Uma & M. Sridhar</em>). Explore how a tiny potted <strong>Bonsai tree</strong> represents an uneducated, dependent woman, while a tall <strong>Turayi (Flame/Gulmohar) tree</strong> represents an educated, independent woman who shelters others!
+          </p>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <button onclick="speakText('Welcome to Class 8 English, Unit 7: Bonsai Life by Abburi Chayadevi. In this lesson, we learn why girls must be educated and independent like a free-growing tree, rather than confined like a bonsai plant in a flowerpot.')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-volume-high"></i> Listen to Intro
+            </button>
+            <button onclick="stopSpeech()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition">
+              <i class="fa-solid fa-stop"></i> Stop Audio
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual Metaphor Comparison Mini-Card -->
+        <div class="w-full md:w-auto grid grid-cols-2 gap-2.5 bg-white/90 p-3 rounded-xl border border-emerald-200 shadow-sm text-center">
+          <div class="p-2.5 rounded-lg bg-rose-50 border border-rose-200">
+            <div class="text-2xl mb-1">🪴</div>
+            <div class="font-bold text-xs text-rose-900">Bonsai Tree</div>
+            <div class="text-[11px] text-rose-700 mt-0.5">Stunted in a pot, delicate, dependent, can't face storms (Uneducated Housewife)</div>
+          </div>
+          <div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200">
+            <div class="text-2xl mb-1">🌳</div>
+            <div class="font-bold text-xs text-emerald-900">Free Turayi Tree</div>
+            <div class="text-[11px] text-emerald-700 mt-0.5">Grows tall in the open, strong, gives shade & shelter to many (Educated Woman)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 1: EASY LESSON GUIDE & READING PART II -->
+    <!-- ========================================== -->
+    <div id="tab-lesson" class="tab-panel space-y-6">
+
+      <!-- Quick Story Recap: Part I vs Part II -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full">Part I Recap (Pages 107–109)</span>
+            <button onclick="speakText(document.getElementById('part1-summary').innerText)" class="text-emerald-700 hover:text-emerald-900 text-xs font-bold flex items-center gap-1">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="part1-summary" class="space-y-2 text-sm text-slate-700">
+            <p><strong>1. Characters:</strong> <strong>Ammalu</strong> (the narrator, an educated working woman living in New Delhi) and <strong>Akkayya</strong> (her elder sister, uneducated, married to a village farmer).</p>
+            <p><strong>2. The Visit:</strong> Ammalu gets excited seeing a letter from Akkayya saying she and Baavagaru are visiting Delhi on their way to Kasi and Haridwar. Akkayya brings traditional Andhra food items (<em>gongura, drumsticks, cucumber, appadams, vadiyams</em>).</p>
+            <p><strong>3. Contrast in Lives:</strong> Ammalu sometimes feels tired managing both office and housework, wishing to give up her job. But Akkayya reminds her how lucky she is to earn her own money and live with dignity, unlike a dependent housewife who must beg her husband even for a few paise worth of <em>karivepaku</em> (curry leaves). That is why Akkayya is determined to send her daughter to college!</p>
+            <div class="p-2.5 bg-amber-50 rounded-xl text-xs text-amber-950 border border-amber-200 mt-2">
+              <strong>తెలుగు సారాంశం (Part I):</strong> రచయిత్రి (అమ్మలు) ఢిల్లీలో ఉద్యోగం చేసే విద్యావంతురాలు. ఆమె అక్కయ్య 5వ తరగతి వరకే చదివి పల్లెటూరిలో గృహిణిగా ఉంటుంది. భర్తపై ఆర్థికంగా ఆధారపడే జీవితం తేలును చెప్పు కింద పెట్టినట్లు అణచివేతగా ఉంటుందని, తన కూతురిని తప్పకుండా కాలేజీకి పంపిస్తానని అక్కయ్య చెప్తుంది.
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-emerald-100 text-emerald-900 text-xs font-extrabold px-3 py-1 rounded-full">Part II Summary (Pages 110–112)</span>
+            <button onclick="speakText(document.getElementById('part2-summary').innerText)" class="text-emerald-700 hover:text-emerald-900 text-xs font-bold flex items-center gap-1">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="part2-summary" class="space-y-2 text-sm text-slate-700">
+            <p><strong>1. The Balcony & Bonsai:</strong> To divert Akkayya from sad memories of how their father (Nannagaru) stopped her studies, Ammalu takes her to the balcony. Akkayya is shocked to see <em>turayi</em> and pomegranate trees stunted inside small flowerpots.</p>
+            <p><strong>2. Bonsai Art vs Confinement:</strong> Ammalu proudly explains the Japanese art of <strong>Bonsai</strong> (trimming branches and roots to keep giant trees tiny). Akkayya sighs that it is cruel to confine a tall tree to a small pot.</p>
+            <p><strong>3. The Storm & Realization:</strong> A sudden dust storm and rain hit Delhi. Ammalu rushes to bring the delicate bonsai pots indoors. Looking out the window, Akkayya points to a huge <strong>Turayi tree</strong> standing strong in the storm and giving shelter to many people. She compares a housewife's life to a delicate, dependent Bonsai. Touched deeply, Ammalu feels the urge to free her bonsai trees!</p>
+            <div class="p-2.5 bg-emerald-50 rounded-xl text-xs text-emerald-950 border border-emerald-200 mt-2">
+              <strong>తెలుగు సారాంశం (Part II):</strong> పూలకుండీలలో మరుగుజ్జుగా పెంచిన బోన్సాయ్ చెట్లను చూసి అక్కయ్య బాధపడుతుంది. తుఫాను, వర్షం వచ్చినప్పుడు బయట స్వేచ్ఛగా పెరిగిన తురాయి చెట్టు ఎందరికో నీడనిస్తుంటే, బోన్సాయ్ చెట్టు మాత్రం తనను తాను కూడా రక్షించుకోలేక ఆధారపడుతుంది. ఆడపిల్లలను చదివించకపోతే వారి బ్రతుకు కూడా బోన్సాయ్ చెట్టులాగే అవుతుందని అక్కయ్య చెప్పిన మాటలతో రచయిత్రి మనసు మారుతుంది.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Textbook Reading: B Reading - Bonsai Life Part II (Pages 110-112) -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-emerald-800 text-white px-5 py-3.5 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-amber-300 font-bold">Textbook Pages 110–112 • B Reading</span>
+            <h3 class="text-lg font-extrabold">Bonsai Life — Part II (Full Lesson with Interactive Meanings)</h3>
+          </div>
+          <button onclick="speakText(document.getElementById('lesson-full-text').innerText)" class="bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-extrabold px-3.5 py-2 rounded-xl shadow flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-headphones"></i> Read Aloud Full Lesson
+          </button>
+        </div>
+
+        <div class="p-4 sm:p-6 space-y-4 text-sm sm:text-base leading-relaxed text-slate-800" id="lesson-full-text">
+          <p class="text-xs text-slate-500 italic bg-slate-100 px-3 py-1.5 rounded-lg">
+            💡 <strong>Tip:</strong> Tap or click any <span class="vocab-highlight">highlighted word</span> to see its meaning instantly!
+          </p>
+
+          <p>
+            From the very start Akkayya had been keen on studying. But Nannagaru didn’t educate her. Because she was not <span class="vocab-highlight" onclick="showWordModal('adept (adj)', 'a natural ability to do something skilfully (నిపుణత / నైపుణ్యం గల)')">adept</span> at oral arithmetic, Nannagaru had said, <em>“Ah ‘she’s a girl, how will studies get into her head?”</em> and had made her discontinue her lessons concentrating only on Annayya’s education. Because she was uneducated, she got married to a man from a village, had to look after the cattle, keep the stove clean, draw water from the well... Amma used to be very upset that Akkayya had to go through such <span class="vocab-highlight" onclick="showWordModal('drudgery (n)', 'hard, boring work (కష్టమైన, విసుగు తెప్పించే ఇంటి చాకిరీ)')">drudgery</span>. Realizing that Akkayya was upset thinking of the past, and in an attempt to divert her mind, I led her to the balcony saying, “Come, let’s go and sit outside.”
+          </p>
+
+          <p>
+            Looking at the plants in the flowerpots, Akkayya mentioned that all the cucumbers, drumsticks and gongura were from their own backyard. I asked her to send some gongura seeds the next time someone came this way…
+          </p>
+
+          <p>
+            “But, Ammalu, what’s this? Why have you planted the turayi and pomegranate trees in these flowerpots? See, how <span class="vocab-highlight" onclick="showWordModal('stunted (v/adj)', 'prevented from growing to its natural size (పెరుగుదల ఆగిపోయిన / మరుగుజ్జుగా మారిన)')">stunted</span> they have become! If, like flower plants, you put these trees in pots instead of letting them grow freely in the backyard, how will they grow?” she asked, surprised, feeling sorry for the trees.
+          </p>
+
+          <p>
+            I burst into laughter. Akkayya was <span class="vocab-highlight" onclick="showWordModal('perplex (v) / perplexed (adj)', 'confuse / puzzled and unable to understand (అయోమయానికి గురైన)')">perplexed</span>.
+          </p>
+
+          <p>
+            “I did it on purpose. It’s a special method. It’s called <strong>bonsai</strong> in Japan. You can grow even a huge banyan tree in a flowerpot. You can grow it even with its roots hanging down from the branches. You have no idea how beautiful a pomegranate tree looks when you keep cutting its branches, changing the pot now and then, trimming it into a small-sized tree and making it bear fruit! Do you know how carefully you have to tend this small tree? Bonsai is a great art,” I said.
+          </p>
+
+          <p>
+            But it seemed as if Akkayya didn’t appreciate what I said. “I don’t know. You have confined a turayi tree to a flowerpot when it could have grown to the height of a building,” she sighed.
+          </p>
+
+          <p>
+            Feeling disheartened at being unable to impress Akkayya with my bonsai, I collapsed weakly into a chair. I was most distressed – as if the entire art I had learnt had come to <span class="vocab-highlight" onclick="showWordModal('nought (n)', 'nothing / zero (శూన్యం / నిష్ఫలం)')">nought</span>. It was like throwing perfume into ash. Suddenly a dust storm began to <span class="vocab-highlight" onclick="showWordModal('rage (v)', 'come with force / continue violently (ఉధృతంగా వీచుట)')">rage</span>. The sand hit our faces harshly. I caught hold of Akkayya’s shoulder and dragged her into the room. Then I closed the doors and windows in a hurry.
+          </p>
+
+          <p>
+            Akkayya was stunned. “What’s all this? Everything was normal till now. Where did that dust and wind come from suddenly? You have tar roads too,” she said.
+          </p>
+
+          <p>
+            “This is how it is in the big city, my dear. Before we know what is happening, the storm brings all the sand from the Rajasthan desert and hits our face…” I had not completed my sentence when I could hear the rain beginning to fall. I opened the door and pulled the bonsai tree pots and flowerpots inside, under the <span class="vocab-highlight" onclick="showWordModal('canopy (n)', 'a cover fixed over something for shelter (పైకప్పు / నీడనిచ్చే పందిరి)')">canopy</span>. Akkayya opened side window and looked at the streets to observe the weather in the Indian capital. “Look, Ammalu, look there,” she said. A new enthusiasm seemed to have crept into her voice. I looked eagerly through the window towards the street. I couldn’t understand what she meant. I looked at her and said, “What is it?”
+          </p>
+
+          <p>
+            “Look at that tree… look at how many people are standing under it without getting wet,” she said, as if it was something out of the ordinary. I saw nothing unusual in it. Realising that I had not understood what she was getting at, she said again, “Look how tall that turayi has grown. Out in the open, see how freely it has grown. However powerful the sand storm, it hasn’t bowed a little bit. Moreover, it has provided shelter to so many people, and is protecting them. Imagine how many would find <span class="vocab-highlight" onclick="showWordModal('respite (n)', 'a short period of rest or relief from something difficult (ఉపశమనం / విశ్రాంతి)')">respite</span> from the hot sun under its shade!”
+          </p>
+
+          <p>
+            “What’s so surprising about that?” I asked.
+          </p>
+
+          <p class="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-r-xl font-medium text-emerald-950">
+            “Not that it is surprising, Ammalu. Look at the bonsai you have tended so lovingly! It looks proper and sweet, like a housewife. But see how delicate it is. You have to tend it very carefully. It can’t even withstand a small dust storm or <span class="vocab-highlight" onclick="showWordModal('squall (n)', 'a sudden strong violent wind or storm (పెనుగాలి / తుఫాను గాలి)')">squall</span>. When it is dependent on someone, how can it provide shelter to anyone? Isn’t it because of the difference in the way one brings up a boy and a girl, that a woman’s life is like that of a bonsai?”
+          </p>
+
+          <p class="font-semibold text-emerald-900">
+            My heart was touched by Akkayya’s words. Just as one frees a bird from a cage to let it fly, I felt the urge to free the bonsai trees from their flower pots.
+          </p>
+        </div>
+
+        <!-- About the Author Box (Page 112) -->
+        <div class="bg-slate-50 border-t border-slate-200 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-700 text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow">
+            <i class="fa-solid fa-feather-pointed"></i>
+          </div>
+          <div class="text-xs sm:text-sm text-slate-700 space-y-1">
+            <div class="font-extrabold text-slate-900 text-sm sm:text-base">About the Author — Abburi Chayadevi (అబ్బూరి ఛాయాదేవి)</div>
+            <p><strong>Abburi Chayadevi</strong> (1933–2019) is a well-known feminist writer. She has written many short stories and essays. She was awarded the prestigious <strong>Central Sahitya Akademi Award in 2005</strong> (for her work <em>Tana Margam</em>). In her works, she elucidates women’s life and their feelings. <em>(Original Telugu Title: "Bonsai Bratukulu", Translated by Alladi Uma and M. Sridhar).</em></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete Glossary Cards (Pages 109 & 112) -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-book-bookmark text-emerald-600"></i> Complete Glossary (Pages 109 & 112) — Tap to Listen
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <!-- Page 109 Glossary -->
+          <div onclick="speakText('exhaustion: extreme tiredness')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">exhaustion (n) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">extreme tiredness (విపరీతమైన అలసట)</div>
+          </div>
+          <div onclick="speakText('vanish: disappear')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">vanish (v) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">disappear (మాయమవుట)</div>
+          </div>
+          <div onclick="speakText('mutter: complain about something privately')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">mutter (v) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">complain privately (లోలోపల గొణుగుకొనుట)</div>
+          </div>
+          <div onclick="speakText('savour: enjoy eating')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">savour (v) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">enjoy eating / tasting (ఆస్వాదించుట)</div>
+          </div>
+          <div onclick="speakText('elated: very happy, excited')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">elated (adj) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">very happy, excited (ఉప్పొంగిపోవుట)</div>
+          </div>
+          <div onclick="speakText('sumptuous: grand and splendid')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">sumptuous (adj) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">grand (భారీ / షడ్రసోపేతమైన విందు)</div>
+          </div>
+          <div onclick="speakText('wretched: very unhappy, miserable')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">wretched (adj) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">very unhappy, miserable (దయనీయమైన)</div>
+          </div>
+          <div onclick="speakText('uphill: difficult')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">uphill (adj) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">difficult (కష్టతరమైన పని)</div>
+          </div>
+          <div onclick="speakText('dignified: deserving respect')" class="cursor-pointer p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 transition">
+            <div class="font-bold text-emerald-900 text-sm">dignified (adj) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-600">deserving respect (ఆత్మగౌరవంతో కూడిన)</div>
+          </div>
+          <!-- Page 112 Glossary -->
+          <div onclick="speakText('adept: a natural ability to do something skilfully')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">adept (adj) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">a natural ability to do something skilfully (నైపుణ్యం గల)</div>
+          </div>
+          <div onclick="speakText('drudgery: hard, boring work')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">drudgery (n) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">hard, boring work (విసుగు పుట్టించే చాకిరీ)</div>
+          </div>
+          <div onclick="speakText('perplex: confuse')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">perplex (v) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">confuse (అయోమయపరచు)</div>
+          </div>
+          <div onclick="speakText('nought: nothing or zero')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">nought (n) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">nothing / zero (శూన్యం / సున్నా)</div>
+          </div>
+          <div onclick="speakText('rage: come with force')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">rage (v) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">come with force (వేగంగా, ఉధృతంగా వచ్చు)</div>
+          </div>
+          <div onclick="speakText('stunted: prevented from growth')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">stunted (v) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">prevented from growth (పెరుగుదల ఆగిపోయిన)</div>
+          </div>
+          <div onclick="speakText('canopy: a cover fixed over something for shelter')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">canopy (n) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">a cover fixed over something for shelter (పైకప్పు / పందిరి)</div>
+          </div>
+          <div onclick="speakText('respite: a short period of rest')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">respite (n) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">a short period of rest (విశ్రాంతి / ఉపశమనం)</div>
+          </div>
+          <div onclick="speakText('squall: a strong wind')" class="cursor-pointer p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100 border border-emerald-200 transition">
+            <div class="font-bold text-emerald-950 text-sm">squall (n) <i class="fa-solid fa-volume-low text-xs text-emerald-600 ml-1"></i></div>
+            <div class="text-xs text-slate-700">a strong wind (పెనుగాలి)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button onclick="switchTab('tab-page109')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+          Next: Page 109 Exercises <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: PAGE 109 EXERCISES (PART I)         -->
+    <!-- ========================================== -->
+    <div id="tab-page109" class="tab-panel hidden space-y-6">
+
+      <!-- Exercise I: Tick (✓) the statements that are true (Page 109) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 109 • Comprehension I</span>
+            <h3 class="text-lg font-extrabold text-slate-900">I. Tick (✓) the statements that are TRUE</h3>
+          </div>
+          <span class="text-xs bg-amber-100 text-amber-900 px-3 py-1 rounded-full font-bold">Interactive True / False</span>
+        </div>
+
+        <div class="space-y-3" id="pg109-tf-list">
+          <!-- Item 1 -->
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="text-sm font-medium"><strong>1.</strong> The narrator receives letters very frequently.</div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="checkTF(1, true, false)" id="tf-1-true" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-emerald-50">✓ True</button>
+              <button onclick="checkTF(1, false, false)" id="tf-1-false" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-rose-50">✗ False</button>
+            </div>
+          </div>
+          <div id="tf-exp-1" class="hidden text-xs px-3.5 py-2 rounded-lg"></div>
+
+          <!-- Item 2 -->
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="text-sm font-medium"><strong>2.</strong> The letter brought the news of the narrator’s sister and brother-in-law’s arrival.</div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="checkTF(2, true, true)" id="tf-2-true" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-emerald-50">✓ True</button>
+              <button onclick="checkTF(2, false, true)" id="tf-2-false" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-rose-50">✗ False</button>
+            </div>
+          </div>
+          <div id="tf-exp-2" class="hidden text-xs px-3.5 py-2 rounded-lg"></div>
+
+          <!-- Item 3 -->
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="text-sm font-medium"><strong>3.</strong> The narrator’s husband was very happy to hear the news of the visitors.</div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="checkTF(3, true, true)" id="tf-3-true" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-emerald-50">✓ True</button>
+              <button onclick="checkTF(3, false, true)" id="tf-3-false" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-rose-50">✗ False</button>
+            </div>
+          </div>
+          <div id="tf-exp-3" class="hidden text-xs px-3.5 py-2 rounded-lg"></div>
+
+          <!-- Item 4 -->
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="text-sm font-medium"><strong>4.</strong> Akkayya was not interested to continue her studies.</div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="checkTF(4, true, false)" id="tf-4-true" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-emerald-50">✓ True</button>
+              <button onclick="checkTF(4, false, false)" id="tf-4-false" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-rose-50">✗ False</button>
+            </div>
+          </div>
+          <div id="tf-exp-4" class="hidden text-xs px-3.5 py-2 rounded-lg"></div>
+
+          <!-- Item 5 -->
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="text-sm font-medium"><strong>5.</strong> The narrator’s husband likes the traditional food of Andhra Pradesh.</div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="checkTF(5, true, true)" id="tf-5-true" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-emerald-50">✓ True</button>
+              <button onclick="checkTF(5, false, true)" id="tf-5-false" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold hover:bg-rose-50">✗ False</button>
+            </div>
+          </div>
+          <div id="tf-exp-5" class="hidden text-xs px-3.5 py-2 rounded-lg"></div>
+        </div>
+      </div>
+
+      <!-- Exercise II: Answer the following questions (Page 109) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 109 • Comprehension II</span>
+          <h3 class="text-lg font-extrabold text-slate-900">II. Answer the following questions (Easy Student Notes + Practice)</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Write your own answer or view/listen to the easy-to-learn model answers below.</p>
+        </div>
+
+        <!-- Q1 -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+          <div class="font-bold text-sm sm:text-base text-slate-900">
+            1. “The moment I see letters….. can’t contain my excitement.” Why does the narrator get excited?
+          </div>
+          <textarea id="pg109-q1" rows="2" placeholder="Type your answer here..." class="w-full rounded-xl border border-slate-300 p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="toggleAnswer('ans-109-1')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-eye"></i> Show/Hide Model Answer
+            </button>
+            <button onclick="copyModelToInput('ans-109-1-text', 'pg109-q1')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Fill Model Answer
+            </button>
+            <button onclick="speakText(document.getElementById('ans-109-1-text').innerText)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="ans-109-1" class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs sm:text-sm text-emerald-950 space-y-1">
+            <p id="ans-109-1-text"><strong>Model Answer:</strong> The narrator gets excited when she sees letters because she feels as if she is face-to-face with her near and dear ones and that they are speaking affectionately to her. The sight of a letter in a familiar handwriting immediately removes all her exhaustion from office work and fills her heart with joy and energy.</p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+          <div class="font-bold text-sm sm:text-base text-slate-900">
+            2. What change did the narrator observe in her father’s attitude towards education over a decade?
+          </div>
+          <textarea id="pg109-q2" rows="2" placeholder="Type your answer here..." class="w-full rounded-xl border border-slate-300 p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="toggleAnswer('ans-109-2')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-eye"></i> Show/Hide Model Answer
+            </button>
+            <button onclick="copyModelToInput('ans-109-2-text', 'pg109-q2')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Fill Model Answer
+            </button>
+            <button onclick="speakText(document.getElementById('ans-109-2-text').innerText)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="ans-109-2" class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs sm:text-sm text-emerald-950 space-y-1">
+            <p id="ans-109-2-text"><strong>Model Answer:</strong> When Akkayya was young, their father (Nannagaru) believed girls did not need education beyond Class Five, thinking it was enough if a girl could keep the washerman's accounts. However, a decade later when the narrator was born, her father changed with the times, realized the importance of girls' education, and sent her to college without any hesitation.</p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+          <div class="font-bold text-sm sm:text-base text-slate-900">
+            3. Why was Akkayya determined to send her daughter to college?
+          </div>
+          <textarea id="pg109-q3" rows="2" placeholder="Type your answer here..." class="w-full rounded-xl border border-slate-300 p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="toggleAnswer('ans-109-3')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-eye"></i> Show/Hide Model Answer
+            </button>
+            <button onclick="copyModelToInput('ans-109-3-text', 'pg109-q3')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Fill Model Answer
+            </button>
+            <button onclick="speakText(document.getElementById('ans-109-3-text').innerText)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="ans-109-3" class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs sm:text-sm text-emerald-950 space-y-1">
+            <p id="ans-109-3-text"><strong>Model Answer:</strong> Akkayya suffered a lot because she was uneducated and had to depend on her husband even for a few paise. She realized that without a college degree, a woman would come to nothing and would have to live suppressed under her husband’s thumb "like a scorpion under a slipper." Therefore, she was determined to educate her daughter so she could stand on her own feet.</p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+          <div class="font-bold text-sm sm:text-base text-slate-900">
+            4. In what way is the narrator more fortunate than her sister?
+          </div>
+          <textarea id="pg109-q4" rows="2" placeholder="Type your answer here..." class="w-full rounded-xl border border-slate-300 p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="toggleAnswer('ans-109-4')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-eye"></i> Show/Hide Model Answer
+            </button>
+            <button onclick="copyModelToInput('ans-109-4-text', 'pg109-q4')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Fill Model Answer
+            </button>
+            <button onclick="speakText(document.getElementById('ans-109-4-text').innerText)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="ans-109-4" class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs sm:text-sm text-emerald-950 space-y-1">
+            <p id="ans-109-4-text"><strong>Model Answer:</strong> The narrator is more fortunate than her sister because her father sent her to college and gave her higher education. Because of her education, she secured a good job in the city, earns well, and leads an independent, dignified life without having to beg anyone for money.</p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+          <div class="font-bold text-sm sm:text-base text-slate-900">
+            5. Can one be independent without a job or earning? Justify your answer.
+          </div>
+          <textarea id="pg109-q5" rows="2" placeholder="Type your answer here..." class="w-full rounded-xl border border-slate-300 p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="toggleAnswer('ans-109-5')" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-eye"></i> Show/Hide Model Answer
+            </button>
+            <button onclick="copyModelToInput('ans-109-5-text', 'pg109-q5')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Fill Model Answer
+            </button>
+            <button onclick="speakText(document.getElementById('ans-109-5-text').innerText)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+              <i class="fa-solid fa-volume-high"></i> Listen
+            </button>
+          </div>
+          <div id="ans-109-5" class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs sm:text-sm text-emerald-950 space-y-1">
+            <p id="ans-109-5-text"><strong>Model Answer:</strong> No, it is very difficult to be truly independent without a job or earning. Financial independence gives a person self-confidence, decision-making power, and dignity. Without an income, one has to depend on others even for basic daily needs, just as Akkayya had to depend on her husband even for a few paise worth of curry leaves.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="switchTab('tab-lesson')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2.5 rounded-xl">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <button onclick="switchTab('tab-page112')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+          Next: Pages 112–114 Comprehension <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: PAGES 112-114 COMPREHENSION         -->
+    <!-- ========================================== -->
+    <div id="tab-page112" class="tab-panel hidden space-y-6">
+
+      <!-- Comprehension I: Complete the statements giving more than one reason (Pages 112-113) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Pages 112–113 • Comprehension I</span>
+            <h3 class="text-lg font-extrabold text-slate-900">I. Complete the statements giving more than one reason</h3>
+          </div>
+          <button onclick="fillAllReasons()" class="bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-extrabold px-3.5 py-1.5 rounded-xl shadow">
+            <i class="fa-solid fa-magic"></i> Auto-Fill Model Reasons
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Statement 1 -->
+          <div class="p-4 rounded-xl bg-rose-50/60 border border-rose-200 space-y-3">
+            <div class="font-extrabold text-sm sm:text-base text-rose-950">
+              1. Girls should be educated like boys because...
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-rose-800 w-5">a)</span>
+                <input id="reason-1a" type="text" value="they can get good jobs and become financially independent." class="w-full rounded-lg border border-rose-300 px-3 py-1.5 text-xs sm:text-sm bg-white" />
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-rose-800 w-5">b)</span>
+                <input id="reason-1b" type="text" value="they can lead a self-reliant, respected, and dignified life." class="w-full rounded-lg border border-rose-300 px-3 py-1.5 text-xs sm:text-sm bg-white" />
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-rose-800 w-5">c)</span>
+                <input id="reason-1c" type="text" value="they can support their families and face any problem bravely." class="w-full rounded-lg border border-rose-300 px-3 py-1.5 text-xs sm:text-sm bg-white" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Statement 2 -->
+          <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200 space-y-3">
+            <div class="font-extrabold text-sm sm:text-base text-emerald-950">
+              2. Fully grown trees are more useful because...
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-emerald-800 w-5">a)</span>
+                <input id="reason-2a" type="text" value="they provide cool shade and shelter to many people from sun and rain." class="w-full rounded-lg border border-emerald-300 px-3 py-1.5 text-xs sm:text-sm bg-white" />
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-emerald-800 w-5">b)</span>
+                <input id="reason-2b" type="text" value="they can withstand powerful dust storms, winds, and squalls on their own." class="w-full rounded-lg border border-emerald-300 px-3 py-1.5 text-xs sm:text-sm bg-white" />
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-emerald-800 w-5">c)</span>
+                <input id="reason-2c" type="text" value="they grow freely in nature, bear plenty of flowers/fruits, and protect the environment." class="w-full rounded-lg border border-emerald-300 px-3 py-1.5 text-xs sm:text-sm bg-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comprehension II: Answer the following questions (Page 113) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 113 • Comprehension II</span>
+          <h3 class="text-lg font-extrabold text-slate-900">II. Answer the following questions (Part II)</h3>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Part II Q1 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="font-bold text-sm sm:text-base text-slate-900">1. Why was Akkayya perplexed?</div>
+              <button onclick="speakText(document.getElementById('p113-q1-ans').innerText)" class="text-emerald-700 text-xs font-bold shrink-0"><i class="fa-solid fa-volume-high"></i> Listen</button>
+            </div>
+            <p id="p113-q1-ans" class="text-xs sm:text-sm text-emerald-950 bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <strong>Answer:</strong> Akkayya was perplexed (confused) because when she expressed pity for the stunted <em>turayi</em> and pomegranate trees planted in small flowerpots, the narrator (Ammalu) burst into laughter instead of feeling sorry for the trees.
+            </p>
+          </div>
+
+          <!-- Part II Q2 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="font-bold text-sm sm:text-base text-slate-900">2. How is a bonsai reared?</div>
+              <button onclick="speakText(document.getElementById('p113-q2-ans').innerText)" class="text-emerald-700 text-xs font-bold shrink-0"><i class="fa-solid fa-volume-high"></i> Listen</button>
+            </div>
+            <p id="p113-q2-ans" class="text-xs sm:text-sm text-emerald-950 bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <strong>Answer:</strong> A bonsai is reared by planting a tree in a small flowerpot, continuously cutting and trimming its branches and roots, changing the pot now and then, and tending it very carefully so that it remains a tiny, miniature tree that still bears flowers or fruit.
+            </p>
+          </div>
+
+          <!-- Part II Q3 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="font-bold text-sm sm:text-base text-slate-900">3. What similarities do you notice between the bonsai tree and the housewife?</div>
+              <button onclick="speakText(document.getElementById('p113-q3-ans').innerText)" class="text-emerald-700 text-xs font-bold shrink-0"><i class="fa-solid fa-volume-high"></i> Listen</button>
+            </div>
+            <p id="p113-q3-ans" class="text-xs sm:text-sm text-emerald-950 bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <strong>Answer:</strong> Both the bonsai tree and an uneducated housewife look sweet, proper, and delicate, but both are confined to a small space (a flowerpot / the four walls of a house). Neither is allowed to grow to their full natural potential. Both are completely dependent on others for survival and protection, and neither can withstand a sudden storm/crisis on their own or provide shelter to others.
+            </p>
+          </div>
+
+          <!-- Part II Q4 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="font-bold text-sm sm:text-base text-slate-900">4. What made the narrator feel the urge to free the bonsai?</div>
+              <button onclick="speakText(document.getElementById('p113-q4-ans').innerText)" class="text-emerald-700 text-xs font-bold shrink-0"><i class="fa-solid fa-volume-high"></i> Listen</button>
+            </div>
+            <p id="p113-q4-ans" class="text-xs sm:text-sm text-emerald-950 bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <strong>Answer:</strong> During the rain and dust storm, Akkayya showed the narrator how a free-grown <em>turayi</em> tree stood tall against the storm and sheltered many people, whereas the bonsai had to be protected indoors. When Akkayya compared the stunted, dependent bonsai to a woman's restricted life, the narrator's heart was deeply touched and she felt the urge to free the bonsai trees from their flowerpots just like freeing a caged bird.
+            </p>
+          </div>
+
+          <!-- Part II Q5 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="font-bold text-sm sm:text-base text-slate-900">5. What is the central theme of ‘Bonsai Life’?</div>
+              <button onclick="speakText(document.getElementById('p113-q5-ans').innerText)" class="text-emerald-700 text-xs font-bold shrink-0"><i class="fa-solid fa-volume-high"></i> Listen</button>
+            </div>
+            <p id="p113-q5-ans" class="text-xs sm:text-sm text-emerald-950 bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <strong>Answer:</strong> The central theme of <em>‘Bonsai Life’</em> is <strong>Women Empowerment through Education and Financial Independence</strong>. The story highlights that girls should not be confined and stunted like bonsai plants; instead, they must be educated and allowed to grow freely like tall trees so they can live with dignity, face life’s storms, and support others.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comprehension III: Activities done by a Homemaker and a Working Woman (Page 113) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 113 • Comprehension III</span>
+          <h3 class="text-lg font-extrabold text-slate-900">III. Make a list of activities done by a Homemaker and a Working Woman</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="rounded-xl border border-amber-200 bg-amber-50/50 overflow-hidden">
+            <div class="bg-amber-500 text-white font-extrabold px-4 py-2.5 text-sm flex items-center gap-2">
+              <i class="fa-solid fa-house-chimney-user"></i> Homemaker (గృహిణి చేసే పనులు)
+            </div>
+            <ul class="p-4 space-y-2 text-xs sm:text-sm text-slate-800 list-disc list-inside">
+              <li>Cleaning the house, sweeping, and mopping.</li>
+              <li>Keeping the stove and kitchen clean; drawing/fetching water.</li>
+              <li>Cooking breakfast, lunch, snacks, and dinner for the family.</li>
+              <li>Preparing traditional items like <em>appadams, vadiyams, pickles</em>.</li>
+              <li>Looking after children, elders, and cattle/backyard garden.</li>
+              <li>Washing clothes, utensils, and managing household accounts.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl border border-emerald-200 bg-emerald-50/50 overflow-hidden">
+            <div class="bg-emerald-700 text-white font-extrabold px-4 py-2.5 text-sm flex items-center gap-2">
+              <i class="fa-solid fa-briefcase"></i> Working Woman (ఉద్యోగిని చేసే పనులు)
+            </div>
+            <ul class="p-4 space-y-2 text-xs sm:text-sm text-slate-800 list-disc list-inside">
+              <li>Cooking quick meals, packing lunch boxes, and getting children ready in the morning.</li>
+              <li>Commuting to the workplace and attending office duties on time.</li>
+              <li>Working on files, attending meetings, and solving professional problems.</li>
+              <li>Earning a salary, managing bank accounts, and supporting the family financially.</li>
+              <li>Buying groceries and essentials on the way back home.</li>
+              <li>Returning home in the evening to prepare coffee/dinner and help kids with homework.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comprehension IV: Put a tick (✓) mark against the most appropriate meaning (Pages 113-114) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Pages 113–114 • Comprehension IV</span>
+          <h3 class="text-lg font-extrabold text-slate-900">IV. Put a tick (✓) mark against the most appropriate meaning for the phrases</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Phrase 1 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-sm text-slate-900">1. ‘… to keep the washerman’s account’ means</div>
+            <div class="space-y-1.5 text-xs sm:text-sm">
+              <button onclick="checkMCQ(1, 'a')" id="mcq-1-a" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">a) to take care of household work.</button>
+              <button onclick="checkMCQ(1, 'b')" id="mcq-1-b" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">b) to count clothes.</button>
+              <button onclick="checkMCQ(1, 'c')" id="mcq-1-c" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">c) to maintain the washerman’s account (basic literacy/counting).</button>
+            </div>
+            <div id="mcq-exp-1" class="hidden text-xs p-2 rounded-lg"></div>
+          </div>
+
+          <!-- Phrase 2 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-sm text-slate-900">2. ‘... uphill task’ means</div>
+            <div class="space-y-1.5 text-xs sm:text-sm">
+              <button onclick="checkMCQ(2, 'a')" id="mcq-2-a" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">a) high quality work.</button>
+              <button onclick="checkMCQ(2, 'b')" id="mcq-2-b" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">b) a difficult job.</button>
+              <button onclick="checkMCQ(2, 'c')" id="mcq-2-c" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">c) working on a hill.</button>
+            </div>
+            <div id="mcq-exp-2" class="hidden text-xs p-2 rounded-lg"></div>
+          </div>
+
+          <!-- Phrase 3 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-sm text-slate-900">3. ‘…… grass is greener on the other side’ means</div>
+            <div class="space-y-1.5 text-xs sm:text-sm">
+              <button onclick="checkMCQ(3, 'a')" id="mcq-3-a" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">a) the grass on this side is green.</button>
+              <button onclick="checkMCQ(3, 'b')" id="mcq-3-b" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">b) others are as good as we are.</button>
+              <button onclick="checkMCQ(3, 'c')" id="mcq-3-c" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">c) others are in a better position than us.</button>
+            </div>
+            <div id="mcq-exp-3" class="hidden text-xs p-2 rounded-lg"></div>
+          </div>
+
+          <!-- Phrase 4 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-sm text-slate-900">4. ‘…like a scorpion under a slipper’ means</div>
+            <div class="space-y-1.5 text-xs sm:text-sm">
+              <button onclick="checkMCQ(4, 'a')" id="mcq-4-a" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">a) killing a scorpion with a slipper.</button>
+              <button onclick="checkMCQ(4, 'b')" id="mcq-4-b" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">b) being guided and controlled.</button>
+              <button onclick="checkMCQ(4, 'c')" id="mcq-4-c" class="w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 transition">c) feeling totally suppressed.</button>
+            </div>
+            <div id="mcq-exp-4" class="hidden text-xs p-2 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="switchTab('tab-page109')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2.5 rounded-xl">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <button onclick="switchTab('tab-vocab')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+          Next: Pages 114–115 Vocabulary <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: PAGES 114-115 VOCABULARY            -->
+    <!-- ========================================== -->
+    <div id="tab-vocab" class="tab-panel hidden space-y-6">
+
+      <!-- Vocabulary I: Phrasal Verbs (Page 114) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 114 • Vocabulary I</span>
+          <h3 class="text-lg font-extrabold text-slate-900">I. Phrasal Verbs beginning with ‘give’ and ‘look’</h3>
+          <p class="text-xs text-slate-600 mt-1">
+            A <strong>phrasal verb</strong> (Verb + Preposition/Adverb) gives a special meaning different from its individual parts. E.g., <em>‘give up’ = to stop doing something</em>.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Phrasal Verb 1: give in -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-emerald-800 text-sm">1. give in</span>
+              <span class="text-xs bg-emerald-100 text-emerald-900 px-2.5 py-0.5 rounded-full font-semibold">Meaning: yield / surrender / accept defeat</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Own Sentence:</strong> The freedom fighters refused to <u>give in</u> to the Britishers.</p>
+          </div>
+
+          <!-- Phrasal Verb 2: give out -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-emerald-800 text-sm">2. give out</span>
+              <span class="text-xs bg-emerald-100 text-emerald-900 px-2.5 py-0.5 rounded-full font-semibold">Meaning: distribute / emit / come to an end</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Own Sentence:</strong> The teacher asked the monitor to <u>give out</u> the question papers to the students.</p>
+          </div>
+
+          <!-- Phrasal Verb 3: give away -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-emerald-800 text-sm">3. give away</span>
+              <span class="text-xs bg-emerald-100 text-emerald-900 px-2.5 py-0.5 rounded-full font-semibold">Meaning: distribute prizes / donate freely</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Own Sentence:</strong> The Chief Guest was invited to <u>give away</u> the prizes on Annual Day.</p>
+          </div>
+
+          <!-- Phrasal Verb 4: look after -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-teal-800 text-sm">4. look after</span>
+              <span class="text-xs bg-teal-100 text-teal-900 px-2.5 py-0.5 rounded-full font-semibold">Meaning: take care of</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Own Sentence:</strong> We must lovingly <u>look after</u> our parents and grandparents.</p>
+          </div>
+
+          <!-- Phrasal Verb 5: look up -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-teal-800 text-sm">5. look up</span>
+              <span class="text-xs bg-teal-100 text-teal-900 px-2.5 py-0.5 rounded-full font-semibold">Meaning: search for a word/fact in a dictionary</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Own Sentence:</strong> Please <u>look up</u> the meaning of this difficult word in the dictionary.</p>
+          </div>
+
+          <!-- Phrasal Verb 6: look into -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-teal-800 text-sm">6. look into</span>
+              <span class="text-xs bg-teal-100 text-teal-900 px-2.5 py-0.5 rounded-full font-semibold">Meaning: examine / investigate carefully</span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>Own Sentence:</strong> The Principal promised to <u>look into</u> the students' request immediately.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vocabulary II: Similes (Pages 114-115) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Pages 114–115 • Vocabulary II</span>
+          <h3 class="text-lg font-extrabold text-slate-900">II. Similes — Comparing two things using ‘like’</h3>
+          <p class="text-xs text-slate-600 mt-1">
+            Example from textbook: <em>Without it, she will have to live under her husband’s thumb <strong>‘like a scorpion under a slipper’</strong>.</em>
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="font-extrabold text-amber-950 text-sm">a) bright like a full moon</span>
+              <p class="text-xs sm:text-sm text-slate-800 mt-0.5"><strong>1.</strong> After hearing the good news, the little girl’s face shone <u>bright like a full moon</u>.</p>
+            </div>
+            <button onclick="speakText('After hearing the good news, the little girls face shone bright like a full moon.')" class="text-amber-900 text-xs font-bold self-start sm:self-center shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="font-extrabold text-amber-950 text-sm">b) sleep like a log</span>
+              <p class="text-xs sm:text-sm text-slate-800 mt-0.5"><strong>2.</strong> After working hard in the fields all day, the farmer <u>slept like a log</u> at night.</p>
+            </div>
+            <button onclick="speakText('After working hard in the fields all day, the farmer slept like a log at night.')" class="text-amber-900 text-xs font-bold self-start sm:self-center shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="font-extrabold text-amber-950 text-sm">c) eat like a bird</span>
+              <p class="text-xs sm:text-sm text-slate-800 mt-0.5"><strong>3.</strong> My younger sister <u>eats like a bird</u>, so my mother is worried about her health.</p>
+            </div>
+            <button onclick="speakText('My younger sister eats like a bird, so my mother is worried about her health.')" class="text-amber-900 text-xs font-bold self-start sm:self-center shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="font-extrabold text-amber-950 text-sm">d) beautiful like a rose</span>
+              <p class="text-xs sm:text-sm text-slate-800 mt-0.5"><strong>4.</strong> The baby looked <u>beautiful like a rose</u> in her pink dress.</p>
+            </div>
+            <button onclick="speakText('The baby looked beautiful like a rose in her pink dress.')" class="text-amber-900 text-xs font-bold self-start sm:self-center shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="font-extrabold text-amber-950 text-sm">e) sweet like honey</span>
+              <p class="text-xs sm:text-sm text-slate-800 mt-0.5"><strong>5.</strong> S.P. Balasubrahmanyam’s songs are <u>sweet like honey</u> to our ears.</p>
+            </div>
+            <button onclick="speakText('S P Balasubrahmanyams songs are sweet like honey to our ears.')" class="text-amber-900 text-xs font-bold self-start sm:self-center shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vocabulary III: Idioms from Circles (Page 115) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 115 • Vocabulary III</span>
+          <h3 class="text-lg font-extrabold text-slate-900">III. Make Idioms from the words in the circles and use them in sentences</h3>
+        </div>
+
+        <!-- Visual 3-Circle Diagram matching Page 115 -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center text-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div class="w-40 h-40 mx-auto rounded-full bg-rose-100 border-4 border-rose-400 flex flex-col items-center justify-center p-2 shadow-inner">
+            <span class="text-[10px] uppercase font-extrabold text-rose-700">Circle 1</span>
+            <div class="text-xs sm:text-sm font-bold text-rose-950 space-y-0.5 mt-1">
+              <div>fish</div>
+              <div>thorn</div>
+              <div>sore</div>
+              <div>top</div>
+              <div>cat</div>
+            </div>
+          </div>
+
+          <div class="w-36 h-36 mx-auto rounded-full bg-amber-100 border-4 border-amber-400 flex flex-col items-center justify-center p-2 shadow-inner">
+            <span class="text-[10px] uppercase font-extrabold text-amber-700">Circle 2</span>
+            <div class="text-xs sm:text-sm font-bold text-amber-950 space-y-0.5 mt-1">
+              <div>out of</div>
+              <div>in</div>
+              <div>on</div>
+              <div>of</div>
+            </div>
+          </div>
+
+          <div class="w-40 h-40 mx-auto rounded-full bg-emerald-100 border-4 border-emerald-400 flex flex-col items-center justify-center p-2 shadow-inner">
+            <span class="text-[10px] uppercase font-extrabold text-emerald-700">Circle 3</span>
+            <div class="text-xs sm:text-sm font-bold text-emerald-950 space-y-0.5 mt-1">
+              <div>the world</div>
+              <div>water</div>
+              <div>back foot</div>
+              <div>the wall</div>
+              <div>flesh</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solved Idioms Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-emerald-800 text-white">
+                <th class="p-3 rounded-tl-xl">#</th>
+                <th class="p-3">Idiom & Meaning</th>
+                <th class="p-3 rounded-tr-xl">Sentence</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">1.</td>
+                <td class="p-3">
+                  <div class="font-extrabold text-emerald-900">fish out of water</div>
+                  <div class="text-[11px] text-slate-500">uncomfortable in unfamiliar surroundings</div>
+                </td>
+                <td class="p-3">When he was away from home, he felt like a <strong>fish out of water</strong>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">2.</td>
+                <td class="p-3">
+                  <div class="font-extrabold text-emerald-900">thorn in flesh</div>
+                  <div class="text-[11px] text-slate-500">a constant source of trouble or annoyance</div>
+                </td>
+                <td class="p-3">Laziness is a <strong>thorn in flesh</strong> for anyone who wants to succeed in life.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">3.</td>
+                <td class="p-3">
+                  <div class="font-extrabold text-emerald-900">(sore) on the back foot</div>
+                  <div class="text-[11px] text-slate-500">in a defensive or disadvantaged position</div>
+                </td>
+                <td class="p-3">After losing three quick wickets, the cricket team was <strong>on the back foot</strong>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">4.</td>
+                <td class="p-3">
+                  <div class="font-extrabold text-emerald-900">(on) top of the world</div>
+                  <div class="text-[11px] text-slate-500">extremely happy and proud</div>
+                </td>
+                <td class="p-3">Rani felt on <strong>top of the world</strong> when she stood first in her school exams.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">5.</td>
+                <td class="p-3">
+                  <div class="font-extrabold text-emerald-900">cat on the wall</div>
+                  <div class="text-[11px] text-slate-500">someone who does not take a clear side in an argument</div>
+                </td>
+                <td class="p-3">During the debate, Ravi remained like a <strong>cat on the wall</strong> without supporting either side.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="switchTab('tab-page112')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2.5 rounded-xl">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <button onclick="switchTab('tab-grammar')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+          Next: Page 116 Grammar <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: PAGE 116 GRAMMAR (SUBJECT/PREDICATE)-->
+    <!-- ========================================== -->
+    <div id="tab-grammar" class="tab-panel hidden space-y-6">
+
+      <!-- Grammar Explanation & Exercise I & II (Page 116) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 116 • Grammar I & II</span>
+          <h3 class="text-lg font-extrabold text-slate-900">Subjects (Circled) and Predicates (Underlined)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            Every complete sentence has two parts:
+            <span class="subject-circle text-xs">Subject</span> (Who or what the sentence is about) and
+            <span class="predicate-underline text-xs">Predicate</span> (What is said about the subject, starting with the verb).
+          </p>
+        </div>
+
+        <!-- Textbook Examples (Grammar I) -->
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5">
+          <div class="text-xs font-bold uppercase text-slate-500">I. Textbook Examples:</div>
+          <div class="text-sm sm:text-base">
+            1. <span class="subject-circle">Akkayya</span> <span class="predicate-underline">grew accustomed to village life</span>.
+          </div>
+          <div class="text-sm sm:text-base">
+            2. <span class="subject-circle">I</span> <span class="predicate-underline">went into the kitchen</span>.
+          </div>
+        </div>
+
+        <!-- Exercise II: Circle the subjects and underline the predicates -->
+        <div class="space-y-3">
+          <div class="font-extrabold text-sm sm:text-base text-slate-900">
+            II. Circle the subjects and underline the predicates:
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-4 rounded-xl bg-white border-2 border-slate-200 shadow-sm">
+              <div class="text-xs text-slate-400 font-bold mb-1">Sentence 1</div>
+              <div class="text-base">
+                <span class="subject-circle">The girls</span> <span class="predicate-underline">danced</span>.
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">
+                <strong>Subject:</strong> The girls<br/>
+                <strong>Predicate:</strong> danced
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border-2 border-slate-200 shadow-sm">
+              <div class="text-xs text-slate-400 font-bold mb-1">Sentence 2</div>
+              <div class="text-base">
+                <span class="subject-circle">The dark clouds</span> <span class="predicate-underline">filled the sky</span>.
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">
+                <strong>Subject:</strong> The dark clouds<br/>
+                <strong>Predicate:</strong> filled the sky
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border-2 border-slate-200 shadow-sm">
+              <div class="text-xs text-slate-400 font-bold mb-1">Sentence 3</div>
+              <div class="text-base">
+                <span class="subject-circle">Shiva</span> <span class="predicate-underline">drove a silver Toyota</span>.
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">
+                <strong>Subject:</strong> Shiva<br/>
+                <strong>Predicate:</strong> drove a silver Toyota
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise III: Identify subjects and predicates in the paragraph (Page 116) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 116 • Grammar III</span>
+          <h3 class="text-lg font-extrabold text-slate-900">III. Identify Subjects and Predicates in the Paragraph</h3>
+        </div>
+
+        <!-- Visual Color-Coded Paragraph -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 leading-9 text-sm sm:text-base">
+          <span class="subject-circle">The narrator</span> <span class="predicate-underline">felt very happy to receive her sister and brother-in-law, who came to stay with them</span>.
+          <span class="subject-circle">They</span> <span class="predicate-underline">brought many things with them</span>.
+          <span class="subject-circle">Akkayya</span> <span class="predicate-underline">made special dishes for her sister’s husband, which he liked very much</span>.
+          <span class="subject-circle">She</span> <span class="predicate-underline">praised her sister for being employed and making her living</span>.
+          <span class="subject-circle">She</span> <span class="predicate-underline">was very sorry about her position at home</span>.
+          One day <span class="subject-circle">the narrator</span> <span class="predicate-underline">showed her Bonsai plants and explained how they are grown</span> but <span class="subject-circle">she</span> <span class="predicate-underline">did not like it</span>.
+          On a rainy day <span class="subject-circle">many people</span> <span class="predicate-underline">gathered under a tree to take shelter</span>.
+          Showing this, <span class="subject-circle">Akkayya</span> <span class="predicate-underline">made the narrator understand the importance of freedom in one’s life</span>.
+        </div>
+
+        <!-- Clean Table Breakdown for Notebook Writing -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-800 text-white">
+                <th class="p-3 rounded-tl-xl">#</th>
+                <th class="p-3 text-rose-200">Subject (Circled)</th>
+                <th class="p-3 rounded-tr-xl text-sky-200">Predicate (Underlined)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="p-2.5 font-bold">1.</td>
+                <td class="p-2.5 font-bold text-rose-800">The narrator</td>
+                <td class="p-2.5 text-sky-900">felt very happy to receive her sister and brother-in-law, who came to stay with them.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">2.</td>
+                <td class="p-2.5 font-bold text-rose-800">They</td>
+                <td class="p-2.5 text-sky-900">brought many things with them.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">3.</td>
+                <td class="p-2.5 font-bold text-rose-800">Akkayya</td>
+                <td class="p-2.5 text-sky-900">made special dishes for her sister’s husband, which he liked very much.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">4.</td>
+                <td class="p-2.5 font-bold text-rose-800">She</td>
+                <td class="p-2.5 text-sky-900">praised her sister for being employed and making her living.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">5.</td>
+                <td class="p-2.5 font-bold text-rose-800">She</td>
+                <td class="p-2.5 text-sky-900">was very sorry about her position at home.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">6.</td>
+                <td class="p-2.5 font-bold text-rose-800">the narrator / she</td>
+                <td class="p-2.5 text-sky-900">(One day) showed her Bonsai plants and explained how they are grown / (but) did not like it.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">7.</td>
+                <td class="p-2.5 font-bold text-rose-800">many people</td>
+                <td class="p-2.5 text-sky-900">(On a rainy day) gathered under a tree to take shelter.</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold">8.</td>
+                <td class="p-2.5 font-bold text-rose-800">Akkayya</td>
+                <td class="p-2.5 text-sky-900">(Showing this,) made the narrator understand the importance of freedom in one’s life.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="switchTab('tab-vocab')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2.5 rounded-xl">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <button onclick="switchTab('tab-writing')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+          Next: Pages 116–117 Poster & Listening <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: PAGES 116-117 WRITING & LISTENING   -->
+    <!-- ========================================== -->
+    <div id="tab-writing" class="tab-panel hidden space-y-6">
+
+      <!-- Writing Part 1: Features of the Sample Poster (Pages 116-117) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Pages 116–117 • Writing</span>
+          <h3 class="text-lg font-extrabold text-slate-900">Features of the Poster (Handicrafts Exhibition Cum Sale)</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 space-y-2">
+            <div class="font-extrabold text-amber-950">Key Features of a Good Poster:</div>
+            <ul class="space-y-1.5 list-disc list-inside text-slate-800">
+              <li><strong>1. Issuing Authority:</strong> T.S. DWACRA, Arunodaya Building, Nampally, Hyderabad.</li>
+              <li><strong>2. Event / Heading:</strong> Handicrafts Exhibition Cum Sale (Innovative and original products by craftswomen from all over Telangana).</li>
+              <li><strong>3. Dates & Duration:</strong> From 15th to 25th October.</li>
+              <li><strong>4. Inauguration & Time:</strong> By Hon’ble Home Minister at 4 p.m. on 15th October.</li>
+              <li><strong>5. Venue (Place):</strong> People’s Plaza, Necklace Road, Hyderabad.</li>
+              <li><strong>6. Layout & Nature of Sentences:</strong> Eye-catching box layout, bold headings, star bursts ("NO ENTRY FEE", "ALL ARE WELCOME"), and short, persuasive phrases instead of long paragraphs.</li>
+            </ul>
+          </div>
+
+          <!-- Exercise I: Make a Poster based on given information (Page 117) -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-rose-900 via-purple-900 to-indigo-950 text-white border-4 border-amber-400 shadow-xl relative overflow-hidden text-center space-y-3">
+            <div class="inline-block bg-amber-400 text-slate-950 text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow">
+              ✨ Grand Cultural Event • Children's Day Special ✨
+            </div>
+            <h4 class="text-xl sm:text-2xl font-extrabold text-amber-300 tracking-wide uppercase drop-shadow">
+              Classical Dance Performance
+            </h4>
+            <p class="text-sm sm:text-base font-bold text-pink-200">
+              By Renowned Classical Dancer <span class="text-white underline decoration-amber-400">KUM. AARTHI</span>
+            </p>
+
+            <div class="grid grid-cols-2 gap-2 text-left bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 text-xs">
+              <div>
+                <div class="text-amber-300 font-bold">📅 Date & Time:</div>
+                <div class="font-semibold">November 14, 5:30 PM</div>
+              </div>
+              <div>
+                <div class="text-amber-300 font-bold">🌟 Chief Guest:</div>
+                <div class="font-semibold">Hon’ble Chief Minister of Telangana</div>
+              </div>
+              <div class="col-span-2 pt-1 border-t border-white/10">
+                <div class="text-amber-300 font-bold">📍 Venue:</div>
+                <div class="font-semibold">Rajiv Gandhi Auditorium, Khaleelwadi, Nizamabad</div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 pt-1">
+              <span class="bg-emerald-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow">🎟️ FREE ENTRY</span>
+              <span class="bg-rose-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow">🙏 ALL ARE WELCOME</span>
+            </div>
+
+            <div class="pt-2 border-t border-white/20 text-[11px] text-amber-200 font-semibold">
+              Issued by: <strong>Telangana Arts and Crafts Society, Nizamabad</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listening Activity: Debate on 'Education of the Girl Child Is a Burden' (Page 117 & Page 145) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Page 117 (Listening Text on Page 145)</span>
+            <h3 class="text-lg font-extrabold text-slate-900">Listening: Debate — “Education of the Girl Child Is a Burden”</h3>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="speakText(document.getElementById('debate-script').innerText)" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-play"></i> Listen to Debate
+            </button>
+            <button onclick="stopSpeech()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold px-3 py-2 rounded-xl">
+              <i class="fa-solid fa-stop"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Debate Transcript from Appendix-I (Page 145) -->
+        <div id="debate-script" class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3 text-xs sm:text-sm text-slate-700 max-h-60 overflow-y-auto">
+          <p><strong class="text-rose-700">Speaker 1 (For the motion - 'Is a Burden'):</strong> Respected Chairperson, honourable Judges and dear friends, I stand here to express my views for the motion, ‘Education of the girl child is a burden’. In a poor family the main concern for the head of the family is to provide food, clothing and health to all the members. Most of their resources are used for these priorities. Later, when they think of education, the first preference goes to the male child as he would be growing to be the breadwinner of the family, whereas the girl would leave the family one day. So, I feel that educating the girl child is a burden.</p>
+          <p><strong class="text-emerald-700">Speaker 2 (Against the motion - 'Not a Burden'):</strong> Respected chairperson, honourable Judges and dear friends! My knowledgeable opponent is of the opinion that the education of the girl child is a burden. May I ask how education of the girl could be a burden when she is an equal partner in sharing the responsibilities and duties? If given a chance, she will be sharing the burden of the family at least till she gets married. So, I strongly oppose the motion.</p>
+          <p><strong class="text-rose-700">Speaker 1:</strong> When my opponent feels that the girl child would leave the family one day after marriage, can’t we agree that it is a waste of money to educate a girl child? Instead, the families can save the money to bear the expenses of her wedding. Yes, surely the girl can reduce the burden not by earning after education but by managing the household work. As her duty in the later part of life is to look after the family and children, she better gets practice in the same. If she is away from home for longer periods, it would be an additional burden on the family.</p>
+          <p><strong class="text-emerald-700">Speaker 2:</strong> My friend said, the future of the girl child is to look after the family and children. Haven’t such traditional gender roles led to inequalities in the society? I strongly feel that an educated girl can render financial assistance to the father and later to the husband. My dear friend, it is education that will bring about a change in the attitude of people towards the role of women. Indeed, it is rightly said: <em>‘If you educate a man, you educate an individual. If you educate a woman, you educate a family’</em>.</p>
+        </div>
+
+        <!-- Completed Listening Table (Page 117) -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-emerald-900 text-white">
+                <th class="p-3 rounded-tl-xl w-28">Speaker</th>
+                <th class="p-3 bg-rose-800">Arguments FOR ('Education of Girl Child is a Burden')</th>
+                <th class="p-3 rounded-tr-xl bg-emerald-800">Arguments AGAINST ('Education of Girl Child is NOT a Burden')</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="p-3 font-extrabold text-rose-800">Speaker 1</td>
+                <td class="p-3 bg-rose-50/50">1. In poor families, priority goes to food, clothing, and educating the boy (future breadwinner), while a girl leaves the family after marriage.</td>
+                <td class="p-3 text-slate-400 italic">—</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-extrabold text-emerald-800">Speaker 2</td>
+                <td class="p-3 text-slate-400 italic">—</td>
+                <td class="p-3 bg-emerald-50/50">1. A girl is an equal partner in sharing responsibilities and duties; if educated, she shares the burden of the family.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-extrabold text-rose-800">Speaker 1</td>
+                <td class="p-3 bg-rose-50/50">2. Money spent on a girl's education can instead be saved for her wedding expenses.</td>
+                <td class="p-3 text-slate-400 italic">—</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-extrabold text-emerald-800">Speaker 2</td>
+                <td class="p-3 text-slate-400 italic">—</td>
+                <td class="p-3 bg-emerald-50/50">2. Confining girls to housework creates gender inequality; an educated girl gives financial help to both her father and later her husband.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-extrabold text-rose-800">Speaker 1</td>
+                <td class="p-3 bg-rose-50/50">3. A girl's future duty is managing household work and children, so staying away for studies is an extra burden.</td>
+                <td class="p-3 text-slate-400 italic">—</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-extrabold text-emerald-800">Speaker 2</td>
+                <td class="p-3 text-slate-400 italic">—</td>
+                <td class="p-3 bg-emerald-50/50">3. Education changes society's attitude towards women: <em>"If you educate a man, you educate an individual. If you educate a woman, you educate a family."</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- STUDENT WATCH & EXERCISE REPORT SUBMISSION SECTION     -->
+    <!-- ====================================================== -->
+    <section id="reportSection" class="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white rounded-3xl p-5 sm:p-8 shadow-2xl border-2 border-amber-400/60 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/15 pb-4">
+        <div>
+          <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-user-check"></i> Mandatory Student Activity Report
+          </span>
+          <h2 class="text-xl sm:text-2xl font-extrabold mt-2">
+            Submit Your Lesson Watch & Exercise Report
+          </h2>
+          <p class="text-xs sm:text-sm text-emerald-200 mt-1">
+            Your active screen time, tabs studied, and exercise score will be sent directly to your teacher (<strong>balaswamysm@gmail.com</strong>).
+          </p>
+        </div>
+
+        <!-- Live Summary Stats Box -->
+        <div class="grid grid-cols-3 gap-2 bg-white/10 p-3 rounded-2xl border border-white/15 text-center shrink-0">
+          <div class="px-2">
+            <div class="text-[10px] uppercase text-emerald-300 font-bold">Watch Time</div>
+            <div id="reportTimerDisplay" class="text-base sm:text-lg font-mono font-extrabold text-amber-300">00:00</div>
+          </div>
+          <div class="px-2 border-x border-white/15">
+            <div class="text-[10px] uppercase text-emerald-300 font-bold">Tabs Read</div>
+            <div id="tabsVisitedDisplay" class="text-base sm:text-lg font-extrabold text-white">1 / 6</div>
+          </div>
+          <div class="px-2">
+            <div class="text-[10px] uppercase text-emerald-300 font-bold">Score</div>
+            <div id="reportScoreDisplay" class="text-base sm:text-lg font-extrabold text-lime-300">0 / 25</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML Form connected to Formspree (https://formspree.io/f/xvkkvebj) -->
+      <form id="studentReportForm" action="https://formspree.io/f/xvkkvebj" method="POST" class="space-y-4">
+        <!-- Hidden fields for teacher email & automatic telemetry -->
+        <input type="hidden" name="_subject" id="formSubject" value="Class 8 Bonsai Life (Pg 109-117) Student Watch Report" />
+        <input type="hidden" name="teacher_email" value="balaswamysm@gmail.com" />
+        <input type="hidden" name="lesson_unit" value="Class 8 English - Unit 7: Bonsai Life (Pages 109 to 117)" />
+        <input type="hidden" name="total_screen_time_formatted" id="hiddenScreenTime" value="0m 0s" />
+        <input type="hidden" name="total_screen_time_seconds" id="hiddenScreenSeconds" value="0" />
+        <input type="hidden" name="interactive_score" id="hiddenScore" value="0 / 25" />
+        <input type="hidden" name="sections_visited" id="hiddenSectionsVisited" value="Lesson Tab" />
+        <input type="hidden" name="student_written_answers" id="hiddenStudentAnswers" value="" />
+        <input type="hidden" name="submission_timestamp" id="hiddenTimestamp" value="" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-200 mb-1">Student Full Name *</label>
+            <input type="text" name="student_name" id="studentName" required placeholder="Enter your full name" class="w-full rounded-xl bg-white/95 text-slate-900 px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-amber-400 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-200 mb-1">Roll Number / Admission No. *</label>
+            <input type="text" name="roll_number" id="rollNumber" required placeholder="e.g., 24" class="w-full rounded-xl bg-white/95 text-slate-900 px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-amber-400 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-200 mb-1">Class & Section *</label>
+            <input type="text" name="class_section" id="classSection" required value="Class 8" placeholder="Class 8 - Section A" class="w-full rounded-xl bg-white/95 text-slate-900 px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-amber-400 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-200 mb-1">School Name</label>
+            <input type="text" name="school_name" id="schoolName" placeholder="Enter your School Name" class="w-full rounded-xl bg-white/95 text-slate-900 px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-amber-400 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-200 mb-1">Parent / Student Mobile or Email (Optional)</label>
+            <input type="text" name="contact_info" id="contactInfo" placeholder="Mobile number or email" class="w-full rounded-xl bg-white/95 text-slate-900 px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-amber-400 focus:outline-none" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-200 mb-1">What did you learn from "Bonsai Life"? (1–2 sentences) *</label>
+          <textarea name="student_reflection" id="studentReflection" rows="2" required placeholder="e.g., I learned that girls should be educated like boys so they can grow strong and independent like a tall tree." class="w-full rounded-xl bg-white/95 text-slate-900 p-3 text-sm font-medium focus:ring-2 focus:ring-amber-400 focus:outline-none"></textarea>
+        </div>
+
+        <!-- Status Message Box -->
+        <div id="formStatusBox" class="hidden p-4 rounded-xl text-sm font-bold"></div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <div class="text-xs text-emerald-200 flex items-center gap-1.5">
+            <i class="fa-solid fa-envelope-circle-check text-amber-300"></i>
+            Report recipient: <span class="underline font-semibold">balaswamysm@gmail.com</span>
+          </div>
+
+          <button type="submit" id="submitReportBtn" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 active:scale-95 text-slate-950 font-extrabold text-sm sm:text-base px-6 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
+            <i class="fa-solid fa-paper-plane"></i> Submit Watch & Exercise Report
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- VOCABULARY POPUP MODAL -->
+  <div id="wordModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-emerald-200 space-y-3 text-center">
+      <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mx-auto text-xl">
+        <i class="fa-solid fa-book-open-reader"></i>
+      </div>
+      <h4 id="modalWordTitle" class="text-lg font-extrabold text-emerald-950">Word</h4>
+      <p id="modalWordMeaning" class="text-sm text-slate-700 leading-relaxed">Meaning</p>
+      <div class="flex justify-center gap-2 pt-2">
+        <button id="modalSpeakBtn" class="bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl">
+          <i class="fa-solid fa-volume-high"></i> Pronounce
+        </button>
+        <button onclick="closeWordModal()" class="bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2 rounded-xl">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // ==========================================
+    // 1. LIVE SCREEN TIME / STUDY TIMER TRACKER
+    // ==========================================
+    let activeSeconds = 0;
+    let isPageActive = true;
+    const visitedTabs = new Set(['tab-lesson']);
+    let currentScore = 0;
+    const answeredItems = new Set();
+
+    document.addEventListener('visibilitychange', () => {
+      isPageActive = !document.hidden;
+    });
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    setInterval(() => {
+      if (isPageActive) {
+        activeSeconds++;
+        const formatted = formatTime(activeSeconds);
+        document.getElementById('headerTimer').innerText = formatted;
+        document.getElementById('reportTimerDisplay').innerText = formatted;
+        document.getElementById('hiddenScreenTime').value = `${Math.floor(activeSeconds / 60)}m ${activeSeconds % 60}s (${formatted})`;
+        document.getElementById('hiddenScreenSeconds').value = activeSeconds;
+      }
+    }, 1000);
+
+    // ==========================================
+    // 2. TAB NAVIGATION & PROGRESS TRACKING
+    // ==========================================
+    const tabNamesMap = {
+      'tab-lesson': '1. Lesson & Glossary (Pg 110-112)',
+      'tab-page109': '2. Page 109 Exercises',
+      'tab-page112': '3. Pages 112-114 Comprehension',
+      'tab-vocab': '4. Pages 114-115 Vocabulary',
+      'tab-grammar': '5. Page 116 Grammar',
+      'tab-writing': '6. Pages 116-117 Poster & Listening'
+    };
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = 'tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-emerald-700/60 hover:bg-emerald-700 text-emerald-100 flex items-center gap-1.5 transition';
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.className = 'tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-white text-emerald-900 shadow-sm flex items-center gap-1.5 transition font-extrabold';
+      }
+
+      visitedTabs.add(tabId);
+      updateProgressUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updateProgressUI() {
+      const tabCount = visitedTabs.size;
+      document.getElementById('tabsVisitedDisplay').innerText = `${tabCount} / 6`;
+      const pct = Math.min(100, Math.round((tabCount / 6) * 60 + (currentScore / 25) * 40));
+      document.getElementById('overallProgress').style.width = `${pct}%`;
+
+      const visitedReadable = Array.from(visitedTabs).map(t => tabNamesMap[t] || t).join(', ');
+      document.getElementById('hiddenSectionsVisited').value = visitedReadable;
+    }
+
+    function addScore(key, points) {
+      if (!answeredItems.has(key)) {
+        answeredItems.add(key);
+        currentScore = Math.min(25, currentScore + points);
+        document.getElementById('scoreDisplay').innerText = currentScore;
+        document.getElementById('reportScoreDisplay').innerText = `${currentScore} / 25`;
+        document.getElementById('hiddenScore').value = `${currentScore} / 25`;
+        updateProgressUI();
+      }
+    }
+
+    // ==========================================
+    // 3. INTERACTIVE EXERCISES LOGIC
+    // ==========================================
+    const tfExplanations = {
+      1: {
+        correct: "Correct! Statement 1 is FALSE. The narrator says Akkayya doesn't normally write and when things are fine no one bothers to write.",
+        wrong: "Look closely at Part I: Even though the narrator loves receiving letters, she says 'when things are fine, no one bothers to write'. So Statement 1 is FALSE."
+      },
+      2: {
+        correct: "Correct! Statement 2 is TRUE (✓). Akkayya's letter informed that she and Baavagaru were coming to visit.",
+        wrong: "Actually, Statement 2 is TRUE (✓). The letter brought the news of Akkayya and Baavagaru's arrival."
+      },
+      3: {
+        correct: "Correct! Statement 3 is TRUE (✓). Her husband was excited and asked 'Is that true? When? Give me the letter!'",
+        wrong: "Actually, Statement 3 is TRUE (✓). The narrator's husband was very happy and excited."
+      },
+      4: {
+        correct: "Correct! Statement 4 is FALSE. Part II clearly starts with: 'From the very start Akkayya had been keen on studying. But Nannagaru didn't educate her.'",
+        wrong: "Check Page 110 line 1: 'From the very start Akkayya had been keen on studying.' Her father made her discontinue. So Statement 4 is FALSE."
+      },
+      5: {
+        correct: "Correct! Statement 5 is TRUE (✓). He feels elated as if he has had a sumptuous feast when he gets gongura pulusu, cucumber pappu, and drumstick charu!",
+        wrong: "Actually, Statement 5 is TRUE (✓). He loves gongura pulusu, cucumber pappu, and drumstick charu."
+      }
+    };
+
+    function checkTF(qNum, userChoice, actualAnswer) {
+      const expBox = document.getElementById(`tf-exp-${qNum}`);
+      const btnTrue = document.getElementById(`tf-${qNum}-true`);
+      const btnFalse = document.getElementById(`tf-${qNum}-false`);
+
+      btnTrue.className = "px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold";
+      btnFalse.className = "px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold";
+
+      expBox.classList.remove('hidden');
+      if (userChoice === actualAnswer) {
+        addScore(`tf-${qNum}`, 3);
+        expBox.className = "text-xs px-3.5 py-2 rounded-lg bg-emerald-100 text-emerald-900 font-semibold border border-emerald-300";
+        expBox.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> ${tfExplanations[qNum].correct}`;
+        if (userChoice) btnTrue.classList.add('!bg-emerald-600', '!text-white', '!border-emerald-600');
+        else btnFalse.classList.add('!bg-emerald-600', '!text-white', '!border-emerald-600');
+      } else {
+        expBox.className = "text-xs px-3.5 py-2 rounded-lg bg-rose-100 text-rose-900 font-semibold border border-rose-300";
+        expBox.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-600 mr-1"></i> ${tfExplanations[qNum].wrong}`;
+      }
+    }
+
+    const mcqAnswers = {
+      1: { ans: 'c', alt: 'a', text: "Correct! 'To keep the washerman's account' means maintaining the washerman's account / basic household counting." },
+      2: { ans: 'b', text: "Correct! An 'uphill task' means a very difficult job (b)." },
+      3: { ans: 'c', text: "Correct! 'Grass is greener on the other side' means thinking others are in a better position than us (c)." },
+      4: { ans: 'c', text: "Correct! 'Like a scorpion under a slipper' means feeling totally suppressed (c)." }
+    };
+
+    function checkMCQ(qNum, choice) {
+      const exp = document.getElementById(`mcq-exp-${qNum}`);
+      exp.classList.remove('hidden');
+      ['a', 'b', 'c'].forEach(opt => {
+        const el = document.getElementById(`mcq-${qNum}-${opt}`);
+        el.className = "w-full text-left px-3 py-2 rounded-lg border border-slate-300 bg-white text-xs sm:text-sm transition";
+      });
+
+      const selectedBtn = document.getElementById(`mcq-${qNum}-${choice}`);
+      if (choice === mcqAnswers[qNum].ans || choice === mcqAnswers[qNum].alt) {
+        addScore(`mcq-${qNum}`, 2.5);
+        selectedBtn.classList.add('!bg-emerald-600', '!text-white', '!border-emerald-600', 'font-bold');
+        exp.className = "text-xs p-2 rounded-lg bg-emerald-100 text-emerald-900 font-semibold";
+        exp.innerHTML = `<i class="fa-solid fa-check mr-1"></i> ${mcqAnswers[qNum].text}`;
+      } else {
+        selectedBtn.classList.add('!bg-rose-100', '!text-rose-900', '!border-rose-400');
+        exp.className = "text-xs p-2 rounded-lg bg-rose-100 text-rose-900 font-semibold";
+        exp.innerHTML = `<i class="fa-solid fa-xmark mr-1"></i> Try again! Think about how the phrase is used in the story.`;
+      }
+    }
+
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    function copyModelToInput(sourceId, targetId) {
+      const text = document.getElementById(sourceId).innerText.replace('Model Answer:', '').trim();
+      document.getElementById(targetId).value = text;
+      addScore(targetId, 0);
+    }
+
+    function fillAllReasons() {
+      document.getElementById('reason-1a').value = "they can get good jobs and become financially independent.";
+      document.getElementById('reason-1b').value = "they can lead a self-reliant, respected, and dignified life.";
+      document.getElementById('reason-1c').value = "they can support their families and face any problem bravely.";
+      document.getElementById('reason-2a').value = "they provide cool shade and shelter to many people from sun and rain.";
+      document.getElementById('reason-2b').value = "they can withstand powerful dust storms, winds, and squalls on their own.";
+      document.getElementById('reason-2c').value = "they grow freely in nature, bear plenty of flowers/fruits, and protect the environment.";
+    }
+
+    // ==========================================
+    // 4. VOCABULARY MODAL & TEXT-TO-SPEECH
+    // ==========================================
+    function showWordModal(word, meaning) {
+      document.getElementById('modalWordTitle').innerText = word;
+      document.getElementById('modalWordMeaning').innerText = meaning;
+      document.getElementById('wordModal').classList.remove('hidden');
+      document.getElementById('modalSpeakBtn').onclick = () => speakText(`${word}. ${meaning.split('(')[0]}`);
+      speakText(word.split('(')[0]);
+    }
+
+    function closeWordModal() {
+      document.getElementById('wordModal').classList.add('hidden');
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-IN';
+        utterance.rate = 0.95;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function stopSpeech() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    // ==========================================
+    // 5. FORMSPREE REPORT SUBMISSION HANDLER
+    // ==========================================
+    const reportForm = document.getElementById('studentReportForm');
+    reportForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('submitReportBtn');
+      const statusBox = document.getElementById('formStatusBox');
+      const studentName = document.getElementById('studentName').value.trim();
+      const rollNo = document.getElementById('rollNumber').value.trim();
+
+      // Compile student's written answers
+      const qAnswers = [
+        `Pg109-Q1: ${document.getElementById('pg109-q1').value || 'Viewed Model'}`,
+        `Pg109-Q2: ${document.getElementById('pg109-q2').value || 'Viewed Model'}`,
+        `Pg109-Q3: ${document.getElementById('pg109-q3').value || 'Viewed Model'}`,
+        `Pg112-GirlsEducated: a) ${document.getElementById('reason-1a').value} | b) ${document.getElementById('reason-1b').value}`,
+        `Pg113-TreesUseful: a) ${document.getElementById('reason-2a').value} | b) ${document.getElementById('reason-2b').value}`
+      ].join(' || ');
+
+      document.getElementById('hiddenStudentAnswers').value = qAnswers;
+      document.getElementById('hiddenTimestamp').value = new Date().toLocaleString('en-IN');
+      document.getElementById('formSubject').value = `Bonsai Life Report: ${studentName} (Roll: ${rollNo}) - Screen Time: ${formatTime(activeSeconds)}`;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending Report...`;
+
+      try {
+        const formData = new FormData(reportForm);
+        const response = await fetch(reportForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        statusBox.classList.remove('hidden');
+        if (response.ok) {
+          statusBox.className = "p-4 rounded-xl text-sm font-bold bg-emerald-500/20 border border-emerald-400 text-emerald-100";
+          statusBox.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-300 mr-1.5"></i> Thank you, <strong>${studentName}</strong>! Your Watch & Exercise Report (Screen Time: <strong>${formatTime(activeSeconds)}</strong>, Score: <strong>${currentScore}/25</strong>) has been successfully submitted to <strong>balaswamysm@gmail.com</strong>.`;
+          submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> Report Submitted Successfully`;
+        } else {
+          throw new Error('Submission response not ok');
+        }
+      } catch (err) {
+        statusBox.classList.remove('hidden');
+        statusBox.className = "p-4 rounded-xl text-sm font-bold bg-amber-500/20 border border-amber-400 text-amber-100";
+        statusBox.innerHTML = `<i class="fa-solid fa-circle-info mr-1.5"></i> Submitting via standard form post...`;
+        reportForm.submit();
+      }
+    });
+  </script>
+</body>
+</html>
